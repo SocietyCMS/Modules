@@ -1,0 +1,17 @@
+{
+  "name": "Modules",
+  "alias": "modules",
+  "description": "Module used to enable/disable modules.",
+  "keywords": [],
+  "version": "0.0.1",
+  "active": 1,
+  "order": 1,
+  "providers": [
+    "Modules\\Modules\\Providers\\ModulesServiceProvider",
+    "Modules\\Modules\\Providers\\RouteServiceProvider"
+  ],
+  "aliases": {},
+  "files": [
+    "start.php"
+  ]
+}
