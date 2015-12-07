@@ -1,4 +1,6 @@
-<?php namespace Modules\Modules\Manager;
+<?php
+
+namespace Modules\Modules\Manager;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
@@ -26,9 +28,9 @@ class ModuleManager
     private $finder;
 
     /**
-     * @param Config $config
+     * @param Config             $config
      * @param PackageInformation $packageVersion
-     * @param Filesystem $finder
+     * @param Filesystem         $finder
      */
     public function __construct(Config $config, PackageInformation $packageVersion, Filesystem $finder)
     {
@@ -38,9 +40,9 @@ class ModuleManager
         $this->finder = $finder;
     }
 
-
     /**
-     * Return a modules
+     * Return a modules.
+     *
      * @return \Illuminate\Support\Collection
      */
     public function get(Module $module)
@@ -54,15 +56,15 @@ class ModuleManager
 
         if (isset($package->source->url)) {
             $packageUrl = str_replace('.git', '', $package->source->url);
-            $module->versionUrl = $packageUrl . '/tree/' . $package->dist->reference;
+            $module->versionUrl = $packageUrl.'/tree/'.$package->dist->reference;
         }
 
         return $module;
     }
 
-
     /**
-     * Return all modules
+     * Return all modules.
+     *
      * @return \Illuminate\Support\Collection
      */
     public function all()
@@ -77,7 +79,8 @@ class ModuleManager
     }
 
     /**
-     * Return all the enabled modules
+     * Return all the enabled modules.
+     *
      * @return array
      */
     public function enabled()
@@ -86,7 +89,8 @@ class ModuleManager
     }
 
     /**
-     * Get the core modules as an array of names
+     * Get the core modules as an array of names.
+     *
      * @return array|mixed
      */
     public function getCoreModulesByName()
@@ -98,7 +102,8 @@ class ModuleManager
     }
 
     /**
-     * Get the core modules that shouldn't be disabled
+     * Get the core modules that shouldn't be disabled.
+     *
      * @return array|mixed
      */
     public function getCoreModules()
@@ -114,18 +119,22 @@ class ModuleManager
     }
 
     /**
-     * Check if the given module is a core module that should be be disabled
+     * Check if the given module is a core module that should be be disabled.
+     *
      * @param Module $module
+     *
      * @return bool
      */
     public function isCoreModule(Module $module)
     {
         $coreModulesByName = $this->getCoreModulesByName();
+
         return $coreModulesByName->has($module->getLowerName());
     }
 
     /**
-     * Get the core modules that shouldn't be disabled
+     * Get the core modules that shouldn't be disabled.
+     *
      * @return array|mixed
      */
     public function getThirdPartyModules()
@@ -141,7 +150,8 @@ class ModuleManager
     }
 
     /**
-     * Get the enabled modules, with the module name as the key
+     * Get the enabled modules, with the module name as the key.
+     *
      * @return array
      */
     public function getFlippedEnabledModules()
@@ -156,7 +166,8 @@ class ModuleManager
     }
 
     /**
-     * Disable the given modules
+     * Disable the given modules.
+     *
      * @param $enabledModules
      */
     public function disableModules($enabledModules)
@@ -173,7 +184,8 @@ class ModuleManager
     }
 
     /**
-     * Enable the given modules
+     * Enable the given modules.
+     *
      * @param $modules
      */
     public function enableModules($modules)
@@ -185,13 +197,15 @@ class ModuleManager
     }
 
     /**
-     * Get the changelog for the given module
+     * Get the changelog for the given module.
+     *
      * @param Module $module
+     *
      * @return array
      */
     public function changelogFor(Module $module)
     {
-        $path = $module->getPath() . '/changelog.yml';
+        $path = $module->getPath().'/changelog.yml';
         if (!$this->finder->isFile($path)) {
             return [];
         }
@@ -206,8 +220,10 @@ class ModuleManager
     }
 
     /**
-     * Limit the versions to the last 5
+     * Limit the versions to the last 5.
+     *
      * @param array $versions
+     *
      * @return array
      */
     private function limitLastVersionsAmount(array $versions)
