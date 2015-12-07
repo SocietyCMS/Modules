@@ -1,9 +1,12 @@
-<?php namespace Modules\Modules\Manager;
+<?php
+
+namespace Modules\Modules\Manager;
 
 interface ThemeManager
 {
     /**
-     * Get all themes
+     * Get all themes.
+     *
      * @return array
      */
     public function all();
