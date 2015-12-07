@@ -48,7 +48,8 @@ class ModuleManager
     public function get(Module $module)
     {
         $moduleName = $module->getName();
-        $package = $this->packageVersion->getPackageInfo("society/$moduleName-module");
+        $package = $this->packageVersion->getPackageInfo("societycms/module-$moduleName");
+        
         $module->version = isset($package->version) ? $package->version : 'N/A';
         $module->versionUrl = '#';
 
