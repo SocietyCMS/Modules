@@ -61,7 +61,7 @@ class ModuleManager
 
         if (isset($package->source->url)) {
             $packageUrl = str_replace('.git', '', $package->source->url);
-            $module->versionUrl = $packageUrl . '/tree/' . $package->dist->reference;
+            $module->versionUrl = $packageUrl.'/tree/'.$package->dist->reference;
         }
 
         return $module;
@@ -210,7 +210,7 @@ class ModuleManager
      */
     public function changelogFor(Module $module)
     {
-        $path = $module->getPath() . '/changelog.yml';
+        $path = $module->getPath().'/changelog.yml';
         if (!$this->finder->isFile($path)) {
             return [];
         }
