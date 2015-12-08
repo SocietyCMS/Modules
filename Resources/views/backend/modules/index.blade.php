@@ -37,7 +37,7 @@
                 </td>
                 <td>
                     <a href="{{ route('backend::modules.modules.show', [$module->getLowerName()]) }}">
-                        {{ str_replace('v', '', $module->version) }}
+                        {{ $module->version }}
                     </a>
                 </td>
             </tr>

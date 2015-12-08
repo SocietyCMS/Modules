@@ -49,7 +49,12 @@ class ModuleManager
     {
         $moduleName = $module->getName();
         $package = $this->packageVersion->getPackageInfo("societycms/module-$moduleName");
-        
+
+        if (strpos($package->name, '/'))
+        {
+            $module->vendor = explode("/",$package->name)[0];
+        }
+
         $module->version = isset($package->version) ? $package->version : 'N/A';
         $module->versionUrl = '#';
 
