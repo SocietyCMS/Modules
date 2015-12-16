@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $module->name }}
+    @lang('modules::modules.title.module')
 @endsection
 @section('subTitle')
-    @lang('modules::modules.title.module')
+    {{ $module->name }}
 @endsection
 
 @section('content')
@@ -58,8 +58,8 @@
                         <tr>
                             <td class="three wide">{{ trans('modules::modules.table.enabled') }}</td>
                             <td>
-                                <div class="ui fitted toggle checkbox">
-                                    <input type="checkbox" name="public" @if($module->enabled())checked="checked"@endif disabled="disabled">
+                                <div class="ui fitted toggle checkbox" id="moduleEnabledCheckbox">
+                                    <input type="checkbox" @if($module->enabled())checked="checked"@endif>
                                     <label></label>
                                 </div>
                             </td>
@@ -71,20 +71,9 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
     @if (!empty($changelog) && count($changelog['versions']))
         <div class="ui hidden divider"></div>
-        <h2 class="ui dividing header">@lang('modules::modules.changelog')</h2>
+        <h2 class="ui dividing header">@lang('modules::changelog.changelog')</h2>
         <div class="ui segment">
             @include('modules::backend.modules.partials.changelog')
         </div>
@@ -93,4 +82,28 @@
 @endsection
 
 @section('javascript')
+
+    <script>
+        $('#moduleEnabledCheckbox')
+                .checkbox({
+                    beforeChecked: function () {
+                        Vue.http.post("{{ route('backend::modules.modules.enable', $module->getName())}}", {_token: "{{csrf_token()}}"}, function (data, status, request) {
+                            return true;
+                        }).error(function (data, status, request) {
+                            return false;
+                            console.log(data)
+                        });
+                    },
+                    beforeUnchecked: function () {
+                        Vue.http.post("{{ route('backend::modules.modules.disable', $module->getName())}}", {_token: "{{csrf_token()}}"}, function (data, status, request) {
+                            return true;
+                        }).error(function (data, status, request) {
+                            return false;
+                            console.log(data)
+                        });
+                    }
+                });
+
+    </script>
+
 @endsection

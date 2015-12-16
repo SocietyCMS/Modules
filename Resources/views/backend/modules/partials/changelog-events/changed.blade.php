@@ -1,5 +1,5 @@
 <ol class="ui list">
-    <li value=""><div class="header">@lang('modules::modules.changed')</div>
+    <li value=""><div class="header">@lang('modules::changelog.events.changed')</div>
         <ol>
             @foreach ($data as $dataLine)
                 <li value="-">{!! $dataLine !!}</li>

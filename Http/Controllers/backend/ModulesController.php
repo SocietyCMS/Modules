@@ -53,4 +53,31 @@ class ModulesController extends AdminBaseController
 
         return view('modules::backend.modules.show', compact('module', 'changelog'));
     }
+
+    /**
+     * Disable the given module
+     * @param Module $module
+     * @return mixed
+     */
+    public function disable(Module $module)
+    {
+        if ($this->moduleManager->isCoreModule($module)) {
+            return redirect()->route('backend::modules.modules.show', [$module->getLowerName()])
+                ->with('error', trans('workshop::modules.module cannot be disabled'));
+        }
+
+        $module->disable();
+
+        return;
+    }
+    /**
+     * Enable the given module
+     * @param Module $module
+     * @return mixed
+     */
+    public function enable(Module $module)
+    {
+        $module->enable();
+        return;
+    }
 }

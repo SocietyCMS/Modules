@@ -20,6 +20,5 @@ return [
         'enabled'     => 'Enabled',
         'version'     => 'Version',
         'keywords'    => 'Keywords',
-    ],
-    'changelog' => 'Changelog',
+    ]
 ];
