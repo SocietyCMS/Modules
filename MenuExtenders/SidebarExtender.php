@@ -39,7 +39,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                 $item->icon('fa fa-gears');
                 $item->route('backend::modules.modules.index');
                 $item->authorize(
-                    $this->auth->hasAccess('modules.modules.index')
+                    $this->auth->can('modules::manage-modules')
                 );
             });
 
