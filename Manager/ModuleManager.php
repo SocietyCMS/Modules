@@ -210,29 +210,12 @@ class ModuleManager
      */
     public function changelogFor(Module $module)
     {
-        $path = $module->getPath().'/changelog.yml';
+        $path = $module->getPath().'/changelog.md';
         if (!$this->finder->isFile($path)) {
             return [];
         }
 
-        $yamlParser = new Parser();
-
-        $changelog = $yamlParser->parse(file_get_contents($path));
-
-        $changelog['versions'] = $this->limitLastVersionsAmount(array_get($changelog, 'versions', []));
-
-        return $changelog;
-    }
-
-    /**
-     * Limit the versions to the last 5.
-     *
-     * @param array $versions
-     *
-     * @return array
-     */
-    private function limitLastVersionsAmount(array $versions)
-    {
-        return array_slice($versions, 0, 5);
+        $parser = new \Changelog\Parser(file_get_contents($path));
+        return $parser->getReleases();
     }
 }

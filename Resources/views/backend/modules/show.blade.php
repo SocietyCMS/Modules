@@ -71,7 +71,7 @@
     </div>
 
 
-    @if (!empty($changelog) && count($changelog['versions']))
+    @if (!empty($changelog))
         <div class="ui hidden divider"></div>
         <h2 class="ui dividing header">@lang('modules::changelog.changelog')</h2>
         <div class="ui segment">

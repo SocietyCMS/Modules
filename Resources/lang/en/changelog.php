@@ -6,6 +6,9 @@ return [
     'events' => [
         'added' => 'Added',
         'changed' => 'Changed',
-        'removed' => 'Removed'
+        'deprecated' => 'Deprecated',
+        'removed' => 'Removed',
+        'fixed' => 'Fixed',
+        'security' => 'Security'
     ]
 ];
