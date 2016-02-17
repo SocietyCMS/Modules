@@ -42,6 +42,14 @@
                         <td>{{$module->version}}</td>
                     </tr>
                     <tr>
+                        <td>{{ trans('modules::modules.table.license') }}</td>
+                        <td>
+                            @foreach($module->license as $license)
+                                <span>{{$license}}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
                         <td>{{ trans('modules::modules.table.keywords') }}</td>
                         <td>
                             @foreach($module->keywords as $keyword)

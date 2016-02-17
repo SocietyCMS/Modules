@@ -19,6 +19,7 @@ return [
         'description' => 'Description',
         'enabled'     => 'Enabled',
         'version'     => 'Version',
+        'license'     => 'License',
         'keywords'    => 'Keywords',
     ]
 ];

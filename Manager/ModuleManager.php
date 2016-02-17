@@ -64,6 +64,8 @@ class ModuleManager
             $module->versionUrl = $packageUrl.'/tree/'.$package->dist->reference;
         }
 
+        $module->license = $package->license;
+
         return $module;
     }
 
