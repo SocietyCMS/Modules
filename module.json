@@ -1,8 +1,12 @@
 {
   "name": "Modules",
   "alias": "modules",
-  "description": "Module used to enable/disable modules.",
-  "keywords": [],
+  "description": "This Module is used to enable/disable 3rd party modules.",
+  "keywords": [
+    "core",
+    "module",
+    "societycms"
+  ],
   "version": "0.0.1",
   "active": 1,
   "order": 1,
