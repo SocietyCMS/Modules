@@ -55,8 +55,10 @@ class ModulesController extends AdminBaseController
     }
 
     /**
-     * Disable the given module
+     * Disable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function disable(Module $module)
@@ -67,17 +69,17 @@ class ModulesController extends AdminBaseController
         }
 
         $module->disable();
-
-        return;
     }
+
     /**
-     * Enable the given module
+     * Enable the given module.
+     *
      * @param Module $module
+     *
      * @return mixed
      */
     public function enable(Module $module)
     {
         $module->enable();
-        return;
     }
 }
