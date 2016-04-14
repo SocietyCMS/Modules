@@ -4,7 +4,6 @@ namespace Modules\Modules\Installer;
 
 class RegisterDefaultPermissions
 {
-
     public $defaultPermissions = [
 
         'manage-modules' => [

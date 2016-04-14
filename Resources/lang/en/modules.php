@@ -21,5 +21,5 @@ return [
         'version'     => 'Version',
         'license'     => 'License',
         'keywords'    => 'Keywords',
-    ]
+    ],
 ];
