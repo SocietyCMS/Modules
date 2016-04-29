@@ -212,7 +212,7 @@ class ModuleManager
     public function changelogFor(Module $module)
     {
         $path = $module->getPath().'/CHANGELOG.md';
-        if (!$this->finder->isFile($path)) {
+        if (! $this->finder->isFile($path)) {
             return [];
         }
 

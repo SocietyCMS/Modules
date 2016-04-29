@@ -21,7 +21,7 @@ class ModulesServiceProvider extends ServiceProvider
     public function boot()
     {
     }
-    
+
     /**
      * Register the service provider.
      *
