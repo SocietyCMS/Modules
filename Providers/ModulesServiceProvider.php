@@ -20,60 +20,8 @@ class ModulesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerConfig();
-        $this->registerTranslations();
-        $this->registerViews();
     }
-
-    /**
-     * Register config.
-     *
-     * @return void
-     */
-    protected function registerConfig()
-    {
-        $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('modules.php'),
-        ]);
-        $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'modules'
-        );
-    }
-
-    /**
-     * Register translations.
-     *
-     * @return void
-     */
-    public function registerTranslations()
-    {
-        $langPath = base_path('resources/lang/modules/modules');
-
-        if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'modules');
-        } else {
-            $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'modules');
-        }
-    }
-
-    /**
-     * Register views.
-     *
-     * @return void
-     */
-    public function registerViews()
-    {
-        $viewPath = base_path('resources/views/modules/modules');
-
-        $sourcePath = __DIR__.'/../Resources/views';
-
-        $this->publishes([
-            $sourcePath => $viewPath,
-        ]);
-
-        $this->loadViewsFrom([$viewPath, $sourcePath], 'modules');
-    }
-
+    
     /**
      * Register the service provider.
      *
