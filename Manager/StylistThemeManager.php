@@ -45,7 +45,7 @@ class StylistThemeManager implements ThemeManager
     public function find($themeName)
     {
         foreach ($this->getDirectories() as $directory) {
-            if (!str_contains($directory, $themeName)) {
+            if (! str_contains($directory, $themeName)) {
                 continue;
             }
 
@@ -99,7 +99,7 @@ class StylistThemeManager implements ThemeManager
      */
     private function getChangelog($directory)
     {
-        if (!$this->finder->isFile($directory.'/changelog.yml')) {
+        if (! $this->finder->isFile($directory.'/changelog.yml')) {
             return [];
         }
 
