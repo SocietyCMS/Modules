@@ -10,9 +10,6 @@ return [
         'core modules'        => 'Core Modules',
         'third party modules' => 'Third Party Modules',
     ],
-    'button' => [
-        'save module configuration' => 'Save module configuration',
-    ],
     'table' => [
         'vendor'      => 'Vendor',
         'name'        => 'Name',
