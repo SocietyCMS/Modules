@@ -34,7 +34,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
         $menu->group(trans('core::sidebar.workshop'), function (Group $group) {
             $group->weight(20);
 
-            $group->item(trans('modules::modules.title.modules'), function (Item $item) {
+            $group->item(trans('modules::module.title'), function (Item $item) {
                 $item->weight(10);
                 $item->icon('fa fa-gears');
                 $item->route('backend::modules.modules.index');

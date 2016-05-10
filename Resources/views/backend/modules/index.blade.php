@@ -27,8 +27,11 @@
                 </td>
                 <td>
                     <a href="{{ route('backend::modules.modules.show', [$module->getLowerName()]) }}">
-                        {{ $module->name }}
+                        {{ $module->localname }}
                     </a>
+                    @unless($module->localname == $module->name)
+                        <small class="ui gray text">({{$module->name}})</small>
+                    @endunless
                 </td>
                 <td>
                     <a href="{{ route('backend::modules.modules.show', [$module->getLowerName()]) }}">
@@ -65,8 +68,11 @@
             <tr>
                 <td>
                     <a href="{{ route('backend::modules.modules.show', [$module->getLowerName()]) }}">
-                        {{ $module->name }}
+                        {{ $module->localname }}
                     </a>
+                    @unless($module->localname == $module->name)
+                        <small class="ui gray text">({{$module->name}})</small>
+                    @endunless
                 </td>
                 <td>
                     <a href="{{ route('backend::modules.modules.show', [$module->getLowerName()]) }}">

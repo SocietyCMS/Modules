@@ -5,6 +5,7 @@ namespace Modules\Modules\Manager;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Lang;
 use Pingpong\Modules\Module;
 
 class ModuleManager
@@ -47,6 +48,17 @@ class ModuleManager
     public function get(Module $module)
     {
         $moduleName = $module->getName();
+
+        if(Lang::has("$moduleName::module.title")) {
+            $module->localname = Lang::get("$moduleName::module.title");
+        } else {
+            $module->localname = $module->getStudlyName();
+        }
+
+        if(Lang::has("$moduleName::module.description")) {
+            $module->description = Lang::get("$moduleName::module.description");
+        }
+
         $package = $this->packageVersion->getPackageInfo("societycms/module-$moduleName");
 
         if (isset($package->name) && strpos($package->name, '/')) {
