@@ -49,13 +49,13 @@ class ModuleManager
     {
         $moduleName = $module->getName();
 
-        if(Lang::has("$moduleName::module.title")) {
+        if (Lang::has("$moduleName::module.title")) {
             $module->localname = Lang::get("$moduleName::module.title");
         } else {
             $module->localname = $module->getStudlyName();
         }
 
-        if(Lang::has("$moduleName::module.description")) {
+        if (Lang::has("$moduleName::module.description")) {
             $module->description = Lang::get("$moduleName::module.description");
         }
 
